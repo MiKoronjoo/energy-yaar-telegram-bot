@@ -27,10 +27,9 @@ def handle_chat(msg: dict) -> None:
                 if send_message:
                     bot.sendMessage(chat_id, msg_state[this_user.state.value],
                                     reply_markup=rkb_state[this_user.state.value])
-            except StateError:
-                bot.sendMessage(chat_id, '')
+
             except InputError:
-                bot.sendMessage(chat_id, '')
+                bot.sendMessage(chat_id, err_bad_input)
 
 
 bot = telepot.Bot(TOKEN)

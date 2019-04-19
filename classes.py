@@ -10,10 +10,6 @@ class State(enum.Enum):
 from consts import *
 
 
-class StateError(Exception):
-    pass
-
-
 class InputError(Exception):
     pass
 
@@ -26,8 +22,9 @@ class User:
     def __eq__(self, number: int) -> bool:
         return self.id == number
 
-    def back(self) -> None:
-        raise StateError('User in state "%s" can\'t back' % self.state.value)
-
     def say(self, message: str, bot: telepot.Bot) -> bool:
+        if message == '/start':
+            self.state = State.MAIN_MENU
+            return True
+
         raise InputError('"%s" is not a standard input' % message)
