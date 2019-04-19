@@ -2,7 +2,6 @@ import time
 
 import telepot
 from telepot.loop import MessageLoop
-from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton
 
 from config import *
 from classes import *

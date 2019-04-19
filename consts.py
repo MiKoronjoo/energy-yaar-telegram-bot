@@ -1,4 +1,4 @@
-from telepot.namedtuple import KeyboardButton, ReplyKeyboardMarkup
+from telepot.namedtuple import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
 
 from classes import State
 
@@ -46,15 +46,19 @@ text_2 = '''به نام خدا
 question_1 = 'خانواده‌ی شما چند نفره است؟'
 question_2 = 'ماهیانه حدود چند لیتر بنزین مصرف می‌کنی؟'
 
-text_3 = 'فرض کن بنزین آزاد به یکی از قیمت‌های زیر فروخته بشه؛ یکیشون رو انتخاب کن و بگو اگر بنزین اون قیمت بشه؛ ماهیانه چند لیترمصرف می‌کنی؟'
+text_3 = 'فرض کن بنزین آزاد به یکی از قیمت‌های زیر فروخته بشه؛ یکیشون رو انتخاب کن و بگو اگر بنزین اون قیمت بشه؛ ماهیانه چند لیتر مصرف می‌کنی؟'
 
-text_4 = 'اگر بنزین بشه %d تومان ماهیانه چقدر مصرف می‌کنی؟'
+text_4 = 'اگر بنزین بشه %s ماهیانه چقدر مصرف می‌کنی؟'
 
 result_pos = 'با اجرای این طرح %d تومان پول گیرتون میاد.'
 result_neg = 'داری مرام میذاری و به فقرا به‌طور مستقیم و بی‌دخالت دولت %d تومان کمک می‌کنی.'
 
 msg_state = {
     State.MAIN_MENU.value: text_1,
+    State.ABOUT_US.value: text_2,
+    State.Q1_SIZE.value: question_1,
+    State.Q2_USE.value: question_2,
+    State.Q3_P.value: text_3,
 }
 
 # reply keyboards
