@@ -76,7 +76,7 @@ class User:
                 raise InputError('"%s" is not a standard input' % message)
 
             self.state = State.Q4_ECG
-            bot.sendMessage(self.id, text_4 % message, reply_markup=ReplyKeyboardRemove())
+            bot.sendMessage(self.id, text_4 % message, reply_markup=no_rkb)
             return False
 
         elif self.state == State.Q4_ECG:
@@ -84,10 +84,10 @@ class User:
             self.state = State.RESULT
             result = self.get_result()
             if result >= 0:
-                bot.sendMessage(self.id, result_pos % result, reply_markup=ReplyKeyboardMarkup())
+                bot.sendMessage(self.id, result_pos % result, reply_markup=rkb_result)
                 return False
             else:
-                bot.sendMessage(self.id, result_neg % -result, reply_markup=ReplyKeyboardMarkup())
+                bot.sendMessage(self.id, result_neg % -result, reply_markup=rkb_result)
                 return False
 
         elif self.state == State.RESULT:

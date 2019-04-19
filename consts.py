@@ -26,7 +26,11 @@ bl_t5600 = '۵۶۰۰ تومان'
 bl_recalcule = 'با قیمت‌های دیگه حساب کن'
 
 # error messages
-err_bad_input = ''
+err_bad_input = '''ورودی اشتباهه!
+لطفا یکی از گزینه ها رو انتخاب کن'''
+
+err_val = '''ورودی استاندارد نیست!
+لطفا ورودی رو به عدد وارد کن'''
 
 # messages
 text_1 = '''سلام رفیق 👋
@@ -62,6 +66,16 @@ msg_state = {
 }
 
 # reply keyboards
+no_rkb = ReplyKeyboardRemove()
+
+rkb_result = keyboard_maker([[bl_recalcule]])
+
 rkb_state = {
     State.MAIN_MENU.value: keyboard_maker([[bl_about_us, bl_start]]),
+    State.ABOUT_US.value: keyboard_maker([[bl_plan_review, bl_calcule]]),
+    State.Q1_SIZE.value: no_rkb,
+    State.Q2_USE.value: no_rkb,
+    State.Q3_P.value: keyboard_maker([[bl_t5600, bl_t4000, bl_t3000]]),
+    State.Q4_ECG: no_rkb,
+    State.RESULT: rkb_result,
 }

@@ -1,6 +1,5 @@
 import time
 
-import telepot
 from telepot.loop import MessageLoop
 
 from config import *
@@ -28,7 +27,10 @@ def handle_chat(msg: dict) -> None:
                                     reply_markup=rkb_state[this_user.state.value])
 
             except InputError:
-                bot.sendMessage(chat_id, err_bad_input)
+                bot.sendMessage(chat_id, err_bad_input, reply_markup=rkb_state[this_user.state.value])
+
+            except ValueError:
+                bot.sendMessage(chat_id, err_val)
 
 
 bot = telepot.Bot(TOKEN)
