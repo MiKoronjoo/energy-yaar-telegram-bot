@@ -2,7 +2,7 @@ import time
 
 from telepot.loop import MessageLoop
 
-from config import *
+from config import TOKEN, admin_id
 from classes import *
 
 users = []  # Should save in database

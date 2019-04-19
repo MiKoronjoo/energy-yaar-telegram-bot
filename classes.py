@@ -92,7 +92,7 @@ class User:
 
         elif self.state == State.RESULT:
             if message == bl_recalcule:
-                self.state = State.MAIN_MENU
+                self.state = State.Q1_SIZE
                 return True
 
         raise InputError('"%s" is not a standard input' % message)

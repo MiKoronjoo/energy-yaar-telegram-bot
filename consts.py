@@ -1,6 +1,7 @@
 from telepot.namedtuple import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
 
 from classes import State
+from config import email_address, telegram_username
 
 
 def keyboard_maker(keyboard_labels):
@@ -59,7 +60,7 @@ result_neg = 'داری مرام میذاری و به فقرا به‌طور مس
 
 msg_state = {
     State.MAIN_MENU.value: text_1,
-    State.ABOUT_US.value: text_2,
+    State.ABOUT_US.value: text_2 % (email_address, telegram_username),
     State.Q1_SIZE.value: question_1,
     State.Q2_USE.value: question_2,
     State.Q3_P.value: text_3,
